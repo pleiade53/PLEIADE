@@ -1,0 +1,4 @@
+AuthName "User space, requires authentication"
+AuthType Basic
+AuthUserFile "/var/www/html/pcc/.htpasswd"
+Require user the_user_that_doesnt_exist

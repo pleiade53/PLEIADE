@@ -1,0 +1,7 @@
+In this folder lies everything accessible via command line (and called by the web interface)
+
+This includes:
+	- Certificate Authority
+	- PleiadeOS freelan Config
+	- PleiadeOS user config
+	- Access management to pleiade resources

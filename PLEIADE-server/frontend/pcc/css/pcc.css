@@ -1,0 +1,195 @@
+body{
+	background: #E1E2E1;
+	margin:0;
+	color: white;
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.disconnect {
+	width: 9vw;
+	height: 9vw;
+	border: 2px;
+	margin-left: 3vw;
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+	border-radius: 15px;
+	border-color: #9f5500;
+	border-style: solid;
+	
+}
+
+.disconnect img{
+	width: 9vw;
+	height: 9vw;
+}
+
+.navbar{
+	height: 100vh;
+	width:15vw;
+	top:0px;
+	left:0;
+	z-index: 1500;
+	background: #d6821a;
+	margin:0;
+	position: fixed;
+	
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li{
+	height: 10vh;
+	width: 15vw;
+	margin-bottom: 1vh;
+	line-height: 10vh;
+	background: #092e5e;
+	text-align:center;
+	vertical-align: middle;
+}
+
+.navbar ul li:hover{
+	border-right: 5px solid #6487d8;
+}
+
+.selected {
+
+	border-right: 5px solid #7083bc;
+	border-bottom: 5px solid #7083bc;
+}
+
+.navbar ul li a{
+	display: block;
+	width: 15vw;
+	height: 10vh;
+	text-decoration: none;
+	color: white;
+}
+
+.infobulle{
+	line-height: 3vh;
+	background: #40578c;
+	position: absolute;
+	padding: 15px;
+	margin-top: 10vh;
+	margin-left: -7vw;
+	border-radius: 5px;
+	opacity: 0;
+	color: white;
+	transform:scale(0) rotate(10deg);
+	transition:all .1s;
+	
+}
+
+.infobulle::before {
+    content: '';
+	position: absolute;
+	top: -6px;
+	left: 20px;
+	width: 0;
+	height: 0;	
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+
+}
+a:hover .infobulle{
+	opacity: 1;
+	transform:scale(1) rotate(0);
+}
+
+.disconnect:hover .infobulle{
+	opacity: 1;
+	transform:scale(1) rotate(0);
+	
+}
+
+table{
+	text-align:center;
+	margin-left: 30vw;
+	width:55vw;
+	margin-top:10vh;
+	color:#092e5e;
+	border:0.25vw solid #40578c;
+	border-radius:1vw;
+	
+}
+
+tr {
+	height:5vh;
+	background: #F5F5F6;
+	border:3px solid #6487d8;
+}
+
+.online{
+	background: #dcedc8;
+}
+
+tr:hover {
+	background: #40578c;
+	color:#E1E2E1;
+}
+
+tr a .infobulle{
+	margin-top: 6vh;
+}
+
+td img{
+	max-height:5vh;
+}
+
+
+form{
+	text-align:center;
+	margin-left: 45vw;
+	width:25vw;
+	margin-top:15vh;
+	color:#092e5e;
+	border:0.25vw solid #092e5e;
+	border-radius:1vw;
+	background: #40578c;
+	padding: 0;	
+}
+
+form fieldset {
+	text-align: left;
+	background: #7083bc;
+	border:3px solid #092e5e;
+	width:15vw;
+	margin:auto;
+	padding:0;
+	padding-left:1vw;
+	border-radius:1vw;
+	margin-bottom: 1vh;
+}
+
+
+form input{
+	width:40%;
+	margin-bottom: 1vh;
+	height:3vh;
+	line-height: 3vh;
+	border-radius:6px;
+	box-shadow: none;
+	text-shadow: none;
+	border:none;
+}
+
+form fieldset input{
+	margin:auto;
+	height:auto;
+	width:auto;
+}
+
+.error {
+	color:#d50000;
+	background: #ff8a80;
+	border:5px solid #d50000;
+	border-radius: 5px;
+	width: 25vw;
+	margin-left:45vw;
+	margin-top:25vh;
+	padding:2vw;
+}

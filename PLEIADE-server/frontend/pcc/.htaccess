@@ -1,0 +1,5 @@
+AuthUserFile /var/www/html/pcc/.htpasswd
+AuthGroupFile /var/www/html/pcc/.htgroup
+AuthName "Admin Authentication"
+AuthType Basic
+Require group pleiade-administrators
