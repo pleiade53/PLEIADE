@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This file (and the whole project) is under CECILL open source license
+# For more information see file LICENSE
+# Author: Alexandre Dey
+
 # Poll .shutdown_req file every seq
 # If "poweroff" is inside the file, shutdown the container (and then shutdown the machine)
 # If "reboot", restart the container (effectively login out of the user container)

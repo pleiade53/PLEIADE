@@ -5,7 +5,7 @@
 
 # Update time at each reboot
 /sbin/iptables -I INPUT -m state --state ESTABLISHED -j ACCEPT
-/sbin/ntpdate pool.ntp.org
+#/sbin/ntpdate pool.ntp.org
 
 # Set up network namespaces and start containers
 /bin/pleiade-create-jail.sh

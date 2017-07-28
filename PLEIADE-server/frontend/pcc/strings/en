@@ -19,3 +19,4 @@ kioskurl >=< URL at boot (only in kiosk mode)
 notallowed >=< The input data contain invalid characters or input strings are not valid !
 unit >=< Company Unit
 password >=< Password
+gothere >=< Go there

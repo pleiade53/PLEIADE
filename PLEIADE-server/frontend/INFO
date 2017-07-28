@@ -3,3 +3,5 @@ This folder contains every web based UI specific to pleiade
 In it you can find:
 	- Pleiade Control Center (PCC)
 	- Pleiade user home page
+	
+Huge Credit to Bootstrap team (https://github.com/twbs) and to the guys behind SB Admin bootstrap theme (see here: https://github.com/BlackrockDigital/startbootstrap-sb-admin/graphs/contributors)

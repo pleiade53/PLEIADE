@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This file (and the whole project) is under CECILL open source license
+# For more information see file LICENSE
+# Author: Alexandre Dey
+
 ECHO=/bin/echo
 HTPASSWD=/bin/htpasswd
 CAT=/bin/cat
@@ -46,6 +50,7 @@ then
 	for module in ${MODULE_ADDLIST[@]}
 	do
 		$ECHO "$module" >> /var/www/html/pvd/"$USERNAME"/modules_list
+		/bin/pleiade-setgroup.sh $USERNAME $module
 	done
 	
 	# Needs either user account or admin account
@@ -55,7 +60,7 @@ AuthName "User space, requires authentication"
 AuthType Basic
 AuthUserFile "/var/www/html/pcc/.htpasswd"
 Require user $USERNAME
-Require user pleiade-admin
+Require group pcc
 
 EOF
 
@@ -68,7 +73,7 @@ then
 elif [ "$1" == "mod" ]
 then
 	# If a new password has been specified
-	if [ ! -z $PASSWORD ]
+	if [[ ! -z $PASSWORD ]]
 	then
 		$HTPASSWD -b /var/www/html/pcc/.htpasswd $USERNAME $PASSWORD
 	fi

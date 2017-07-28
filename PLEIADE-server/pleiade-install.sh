@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# This file (and the whole project) is under CECILL open source license
+# For more information see file LICENSE
+# Author: Alexandre Dey
+
+
+# Still WIP, do not use it (but feel free to complete it ;) )
+
 DNF=/bin/dnf
 TAIL=/bin/tail
 ECHO=/bin/echo

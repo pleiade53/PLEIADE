@@ -19,3 +19,4 @@ kioskurl >=< URL au d&eacute;marrage (uniquement en mode kiosk)
 notallowed >=< Les donn&eacute;es entr&eacute;es contiennent des caract&egrave;res invalides ou ne sont pas des cha&icirc;nes valides !
 unit >=< Unit&eacute dans l'entreprise
 password >=< Mot de passe
+gothere >=< S'y rendre

@@ -7,9 +7,9 @@ ECHO=/bin/echo
 CUT=/bin/cut
 FEH=/bin/feh
 
-MODE=$($CAT /root/user.cfg | $GREP "mode = " | $AWK -F' = ' '{ print $2 }')
-COMMAND=$($CAT /var/lib/lxc/pleiade-network/rootfs/root/user.cfg | $GREP "command = " | $AWK -F' = ' '{ print $2 }')
-CON_REQ=$($CAT /var/lib/lxc/pleiade-network/rootfs/root/user.cfg | $GREP "con_req = " | $AWK -F' = ' '{ print $2 }')
+MODE=$($CAT /var/lib/lxc/pleiade-network/rootfs/root/config//root/user.cfg | $GREP "mode = " | $AWK -F' = ' '{ print $2 }')
+COMMAND=$($CAT /var/lib/lxc/pleiade-network/rootfs/root/config/user.cfg | $GREP "command = " | $AWK -F' = ' '{ print $2 }')
+CON_REQ=$($CAT /var/lib/lxc/pleiade-network/rootfs/root/config/user.cfg | $GREP "con_req = " | $AWK -F' = ' '{ print $2 }')
 
 
 if [ "$MODE" == "kiosk" ]

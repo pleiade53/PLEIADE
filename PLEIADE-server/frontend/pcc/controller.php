@@ -11,12 +11,20 @@
 		$str = shell_exec("/bin/grep -e \"^$name >=<\" /var/www/html/pcc/strings/$browser_lang | /bin/awk -F' >=< ' '{print $2}'");
 		return rtrim($str, "\n");
 	}
+	function pcc_get_machine_ip($mac)
+	{
+		foreach(pcc_get_machinelist() as $machine)
+		{
+			$entry = explode(" ; ", $machine);
+			if($entry[0] == $mac)
+				return $entry[1];
+		}
+	}
 	
 	function pcc_generate_machinelist()
 	{
 		$htmllist="";
-		$list = shell_exec("/bin/pleiade-get-machines.sh");
-		foreach(explode("\n", $list) as $machine)
+		foreach(pcc_get_machinelist() as $machine)
 		{
 			if($machine == "")
 				continue;
@@ -36,7 +44,7 @@
 
 	function pcc_is_machine($machine)
 	{
-		if(shell_exec("/bin/ls /home/pleiade_installer/client_configs | /bin/grep \"^$machine\$\"") == "")
+		if(shell_exec("run_root /bin/pleiade-is-machine.sh $machine") == "")
 			return false;
 		else
 			return true;
@@ -44,7 +52,7 @@
 
 	function pcc_get_machinelist()
 	{
-		return array_diff(explode("\n", shell_exec("/bin/pleiade-get-machinelist.sh")), array(""));
+		return array_diff(explode("\n", shell_exec("/bin/run_root /bin/pleiade-get-machinelist.sh")), array(""));
 	}
 
 	function pcc_get_modulelist()
@@ -62,7 +70,7 @@
 	
 	function pcc_get_usermodules($user)
 	{
-		$rawusermodules = shell_exec("/bin/pleiade-get-usermodules.sh $user");
+		$rawusermodules = shell_exec("/bin/run_root /bin/pleiade-get-usermodules.sh $user");
 		$moduleslist = array();
 		foreach (explode("\n", $rawusermodules) as $row)
 		{
@@ -95,7 +103,7 @@
 
 	function pcc_get_machinemodules($machine)
 	{
-		$rawmachinemodules = shell_exec("/bin/pleiade-get-machinemodules.sh $machine");
+		$rawmachinemodules = shell_exec("/bin/run_root /bin/pleiade-get-machinemodules.sh $machine");
 		$moduleslist = array();
 		foreach (explode("\n", $rawmachinemodules) as $row)
 		{

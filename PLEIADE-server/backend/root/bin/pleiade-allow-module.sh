@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This file (and the whole project) is under CECILL open source license
+# For more information see file LICENSE
+# Author: Alexandre Dey
 
 # Allow or disallow access to a module
 # Arguments
@@ -24,13 +27,17 @@ then
 		$ECHO "$AUTH_LIST" > /var/www/html/"$3"/.authorized_ip
 	fi
 	
-	$ECHO "Require all denied" > /var/www/html/"$3"/.htaccess
+	$ECHO "AuthType Basic" >> /var/www/html/"$3"/.htaccess
+	$ECHO "AuthName \"Please login\"" >> /var/www/html/"$3"/.htaccess
+	$ECHO "AuthBasicProvider file" >> /var/www/html/"$3"/.htaccess
+	$ECHO "AuthUserFile \"/var/www/html/pcc/.htpasswd\"" >> /var/www/html/"$3"/.htaccess
+	$ECHO "AuthGroupFile \"/var/www/html/pcc/.htgroup\"" >> /var/www/html/"$3"/.htaccess
+	$ECHO "<RequireAll>" >> /var/www/html/"$3"/.htaccess
+	$ECHO "Require group $3" >> /var/www/html/"$3"/.htaccess
 	# rebuild .htaccess to match the authorization
-	for auth_ip in $($CAT /var/www/html/"$3"/.authorized_ip)
-	do
-		$ECHO "Require ip $auth_ip" >> /var/www/html/"$3"/.htaccess
-	done
-	
+	auth_ip=$($CAT /var/www/html/"$3"/.authorized_ip)
+	$ECHO "Require ip $auth_ip" >> /var/www/html/"$3"/.htaccess
+	$ECHO "</RequireAll>">> /var/www/html/"$3"/.htaccess
 else
 	$ECHO "No module named $3"
 fi

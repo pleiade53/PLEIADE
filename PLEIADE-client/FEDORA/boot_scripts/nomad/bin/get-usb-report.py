@@ -1,4 +1,9 @@
 #!/bin/python
+
+# This file (and the whole project) is under CECILL open source license
+# For more information see file LICENSE
+# Author: Alexandre Dey
+
 import sys
 
 def summary(log):

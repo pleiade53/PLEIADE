@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This file (and the whole project) is under CECILL open source license
+# For more information see file LICENSE
+# Author: Alexandre Dey
+
 IP=/sbin/ip
 GREP=/bin/grep
 #BRIDGE_NAME=netbr0

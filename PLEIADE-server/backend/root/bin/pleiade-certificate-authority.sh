@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This file (and the whole project) is under CECILL open source license
+# For more information see file LICENSE
+# Author: Alexandre Dey
+
 # Generates private key and signed certificate for it
 # Arguments:
 #	$1 : sign or revoke (required)
@@ -58,7 +62,7 @@ then
 	$OPENSSL req -nodes -newkey rsa:4096 -keyout "$2".key -out "$2".csr -subj "/C=$COUNTRY/ST=$STATE/L=$CITY/O=$ORGANIZATION/OU=$3/CN=$2"
 
 	# Sign the certificate request
-	$OPENSSL ca -out "$CA_LOC"/crt/"$2".crt -in "$2".csr -config "$CA_LOC"/ca.cnf
+	$OPENSSL ca -batch -out "$CA_LOC"/crt/"$2".crt -in "$2".csr -config "$CA_LOC"/ca.cnf
 	# Move certificates somewhere else (we keep CA clean) 
 	$MV "$2".key "$calling_dir"/newcert/key
 	$MV "$CA_LOC"/crt/"$2".crt "$calling_dir"/newcert/crt

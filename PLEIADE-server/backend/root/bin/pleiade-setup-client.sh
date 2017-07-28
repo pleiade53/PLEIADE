@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This file (and the whole project) is under CECILL open source license
+# For more information see file LICENSE
+# Author: Alexandre Dey
+
 # Declare a new or revoke an old pleiade machine and generate its configuration
 # Arguments:
 #	$1: Name of the machine (Usually MAC address)
@@ -101,7 +105,9 @@ else
 	done
 	
 	# Compress everything in one tarball that will be retrieved by the client
-	$TAR -czf "$CONFIG_DIR/$1"/config.tar.gz "$CONFIG_DIR/$1"/config
+	$CP -R "$CONFIG_DIR/$1"/config ./
+	$TAR -czf "$CONFIG_DIR/$1"/config.tar.gz config
+	$RM -Rf config
 	# Allow pleiade_installer to read this folder, but only root can modify config
 	$CHMOD 640 -R $CONFIG_DIR
 	$CHOWN root:pleiade_installer -R $CONFIG_DIR

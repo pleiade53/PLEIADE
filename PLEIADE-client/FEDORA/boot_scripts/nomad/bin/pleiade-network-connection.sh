@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This file (and the whole project) is under CECILL open source license
+# For more information see file LICENSE
+# Author: Alexandre Dey
+
 # Poll .con_req for a connection request from user container
 # Then launch connection editor on the screen
 
@@ -24,6 +28,7 @@ do
 		if [ ! -z $con_type ] 
 		then
 			/bin/nm-connection-editor
+			$ECHO "" > $CON_POLL
 		fi
 	fi
 	/bin/sleep 1 

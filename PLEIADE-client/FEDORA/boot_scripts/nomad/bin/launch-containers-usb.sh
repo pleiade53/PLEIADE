@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This file (and the whole project) is under CECILL open source license
+# For more information see file LICENSE
+# Authors: Alexandre Dey, Hippolyte Bernard
+
 IP=/sbin/ip
 DHCLIENT=/sbin/dhclient
 TOUCH=/bin/touch
